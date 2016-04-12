@@ -1,0 +1,21 @@
+{
+  "name": "Conner",
+  "description": "",
+  "main": "",
+  "authors": [
+    "conner <c9er99@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "package": "^0.1.2"
+  }
+}
