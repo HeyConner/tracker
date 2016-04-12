@@ -1,5 +1,6 @@
 import { Component } from 'angular2/core';
-
+import {Food} from './food.model';
+import {ListFoodComponent} from './list-food';
 @Component({
   selector: 'my-app',
   template: `
@@ -11,12 +12,16 @@ import { Component } from 'angular2/core';
     </div>
   `
 })
-export class AppComponent {
 
+export class AppComponent {
+  public foods: Food[];
+  constructor() {
+    this.food = [
+      new Food("Cheeseburger", "Double Cheese and triple bacon", 400),
+      new Food("Broccoli", "3 pieces, 2 with ranch", 250),
+      new Food("Snickers Bar", "Ate only half", 300)
+    ];
 }
-export class Food {
-  public food: Food;
-  constructor(public name: string, public details: string, public calories: number ) {
-    this.food = new Food("Cheeseburger", "Double Cheese and triple bacon", 400)
+  selectedFood(thisFood: Food): void {
   }
 }
