@@ -1,20 +1,23 @@
 import { Component } from 'angular2/core';
 import {Food} from './food.model';
-import {ListFoodComponent} from './list-food';
+import {FoodListComponent} from './list-food.component';
 @Component({
   selector: 'my-app',
+  directives: [FoodListComponent],
   template: `
     <div class="container">
-      <h1>Food Tracker</h1>
-      <h3>{{ food.name }}<h3>
-      <h5>{{ food.details }}<h5>
-      <h4>{{ food.calories }}<h4>
+      <div class="jumbotron"
+        <h1>Food Tracker</h1>
+      </div>
+        <food-list [foodList]="foods" (selectFood)="selectedFood($event)">
+        <food-list>
+
     </div>
   `
 })
 
 export class AppComponent {
-  public foods: Food[];
+  public food: Food[];
   constructor() {
     this.food = [
       new Food("Cheeseburger", "Double Cheese and triple bacon", 400),
