@@ -6,11 +6,11 @@ import {FoodListComponent} from './list-food.component';
   directives: [FoodListComponent],
   template: `
     <div class="container">
-      <div class="jumbotron"
+      <div class="jumbotron">
         <h1>Food Tracker</h1>
       </div>
         <food-list [foodList]="foods" (selectFood)="selectedFood($event)">
-        <food-list>
+        </food-list>
 
     </div>
   `

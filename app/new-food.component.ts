@@ -7,8 +7,8 @@ import {Food} from './food.model';
   template: `
       <h3>Add Food</h3>
       <input class="add-food" placeholder="Food" #newName><br>
-      <input class="add-food" placeholder="Details" #newDetails><br>
-      <input class="add-food" type="number" placeholder="Calories" #newCalories><br>
+      <input class="add-food" placeholder="Description" #newDetails><br>
+      <input class="add-food" type="number" placeholder="Calorie Count" #newCalories><br>
       <button (click)="addFood(newName, newDetails, newCalories)">Add</button>
   `
 })

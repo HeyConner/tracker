@@ -5,6 +5,25 @@ import {NewFoodComponent} from './new-food.component';
 import {CaloriePipe} from './calorie.pipe';
 import {EditFoodComponent} from './edit-food.component';
 
+@Component({
+  selector: 'food-list',
+  inputs: ['foodList'],
+  outputs: ['selectFood'],
+  pipes: [CaloriePipe],
+  directives: [FoodComponent, EditFoodComponent, NewFoodComponent],
+  template: `
+  <new-food (onSubmiteNewFood)="createFood($event)"></new-food>
+
+  <br>
+  <h2>Food Log</h2>
+  <food-display *ngFor="#currentFood of foodList | calorie:filterCalorie" (click)="foodClicked(currentFood)"[class.selected]="currentFood === selectedFood" [food]="currentFood"></food-display>
+
+  <select (change)="onChange($event.target.value)">
+  <option value="hearty">Over 300 calories</option>
+  <option value="meager">Under 300 Calories</option>
+  </select>`
+
+})
 
 export class FoodListComponent {
   public foodList: Food[];
