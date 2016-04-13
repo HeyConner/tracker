@@ -12,7 +12,7 @@ import {EditFoodComponent} from './edit-food.component';
   pipes: [CaloriePipe],
   directives: [FoodComponent, EditFoodComponent, NewFoodComponent],
   template: `
-  <new-food (onSubmiteNewFood)="createFood($event)"></new-food>
+  <new-food (onSubmitNewFood)="createFood($event)"></new-food>
 
   <br>
   <h2>Food Log</h2>
