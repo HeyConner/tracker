@@ -6,10 +6,8 @@ import {FoodListComponent} from './list-food.component';
   directives: [FoodListComponent],
   template: `
     <div class="container">
-      <div class="jumbotron">
-        <h1>Food Tracker</h1>
-      </div>
-        <food-list [foodList]="foods" (selectFood)="selectedFood($event)">
+        <h1>Follow Thy Food</h1>
+        <food-list [foodList]="food" (selectFood)="selectedFood($event)">
         </food-list>
 
     </div>
@@ -25,6 +23,6 @@ export class AppComponent {
       new Food("Snickers Bar", "Ate only half", 300)
     ];
 }
-  selectedFood(thisFood: Food): void {
+  selectedFood(clickedFood: Food): void {
   }
 }

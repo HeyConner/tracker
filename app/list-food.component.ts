@@ -16,20 +16,27 @@ import {EditFoodComponent} from './edit-food.component';
 
   <br>
   <h2>Food Log</h2>
-  <food-display *ngFor="#currentFood of foodList | calorie:filterCalorie" (click)="foodClicked(currentFood)"[class.selected]="currentFood === selectedFood" [food]="currentFood"></food-display>
+  <food-display *ngFor="#currentFood of foodList | calorie:filterCalorie" (click)="foodClicked(currentFood)" [class.selected]="currentFood === selectedFood" [food]="currentFood"></food-display>
 
   <select (change)="onChange($event.target.value)">
   <option value="hearty">Over 300 calories</option>
   <option value="meager">Under 300 Calories</option>
-  </select>`
+  </select>
+
+  <div class="row">
+      <edit-food *ngIf="selectedFood"
+      [food]="selectedFood">
+      </edit-food>
+  </div>`
 
 })
+
 
 export class FoodListComponent {
   public foodList: Food[];
   public selectFood: EventEmitter<Food>;
   public selectedFood: Food;
-  public filterCalorie: string = "all";
+  public filterCalorie: string = "hearty";
   constructor() {
     this.selectFood = new EventEmitter();
   }
@@ -38,8 +45,8 @@ export class FoodListComponent {
     this.selectFood.emit(clickedFood);
   }
   createFood(newFood): void {
-   this.foodList.push(newFood);
- }
+    this.foodList.push(newFood);
+  }
   onChange(filterOption) {
     this.filterCalorie = filterOption;
   }

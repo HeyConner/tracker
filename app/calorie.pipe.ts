@@ -8,13 +8,13 @@ import {Food} from './food.model';
 export class CaloriePipe implements PipeTransform {
   transform(input: Food[], args) {
     var desiredCalorieState = args[0];
-    if(desiredCalorieState === "low") {
+    if(desiredCalorieState === "meager") {
       return input.filter((food) => {
         if(food.calories <= 300) {
           return true;
         }
       });
-    } else if (desiredCalorieState === "high") {
+    } else if (desiredCalorieState === "hearty") {
       return input.filter((food) => {
         if(food.calories > 300) {
           return true;
